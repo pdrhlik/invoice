@@ -2,51 +2,29 @@
 
 namespace Contributte\Invoice\Data;
 
-use Nette\SmartObject;
-
-class PaymentInformation
+class PaymentInformation implements IPaymentInformation
 {
 
-	use SmartObject;
-
-	/** @var string */
-	private $currency;
-
-	/** @var string|null */
-	private $variableSymbol;
-
-	/** @var string|null */
-	private $constantSymbol;
-
-	/** @var float|null */
-	private $tax;
-
-	public function __construct(string $currency, ?string $variableSymbol = null, ?string $constantSymbol = null, ?float $tax = null)
+	/**
+	 * @param IAccount[] $accounts
+	 */
+	public function __construct(
+		private array $accounts = [],
+	)
 	{
-		$this->currency = $currency;
-		$this->variableSymbol = $variableSymbol;
-		$this->constantSymbol = $constantSymbol;
-		$this->tax = $tax;
 	}
 
-	public function getCurrency(): string
+	/**
+	 * @return IAccount[]
+	 */
+	public function getAccounts(): array
 	{
-		return $this->currency;
+		return $this->accounts;
 	}
 
-	public function getVariableSymbol(): ?string
+	public function getFirstAccount(): ?IAccount
 	{
-		return $this->variableSymbol;
-	}
-
-	public function getConstantSymbol(): ?string
-	{
-		return $this->constantSymbol;
-	}
-
-	public function getTax(): ?float
-	{
-		return $this->tax;
+		return $this->accounts[array_key_first($this->accounts)] ?? null;
 	}
 
 }

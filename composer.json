@@ -11,8 +11,7 @@
   ],
   "require": {
     "php": ">=7.2",
-    "nette/utils": "^3.0.0",
-    "setasign/fpdf": "^1.8.0"
+    "webchemistry/svg-pdf": "~1.0.0"
   },
   "require-dev": {
     "codeception/codeception": "^4.1.0",

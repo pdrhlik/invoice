@@ -159,10 +159,10 @@ invoice:
 
 ## Paraiso
 Single page:
-![single page](/img/paraiso.png?raw=true)
+![single page](/.docs/img/paraiso.png?raw=true)
 
 Multiple pages:
-![multiple pages](/img/paraiso-paginator.png?raw=true)
+![multiple pages](/.docs/img/paraiso-paginator.png?raw=true)
 
 Greyscale:
-![greyscale](/img/paraiso-greyscale.png?raw=true)
+![greyscale](/.docs/img/paraiso-greyscale.png?raw=true)

@@ -1,8 +1,10 @@
-## ide
-.idea
+# IDE
+/.idea
 
-vendor
-composer.lock
+# Composer
+/vendor
+/composer.lock
 
-## workspace
-workspace
+# Tests
+/temp
+/coverage.xml

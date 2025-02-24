@@ -1,12 +1,11 @@
 {
-  "name": "contributte/invoice",
+  "name": "pdrhlik/invoice",
   "type": "library",
   "description": "Library for easily and quickly creating invoices for customers.",
   "license": [
     "MIT"
   ],
   "keywords": [
-    "contributte",
     "invoice"
   ],
   "require": {

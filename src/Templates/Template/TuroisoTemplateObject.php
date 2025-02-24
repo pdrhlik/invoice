@@ -41,11 +41,11 @@ class TuroisoTemplateObject extends TemplateObject
 		$account = $payment->getFirstAccount();
 
 		$this->colors = [
-			'primary' => new Color(6, 178, 194),
-			'secondary' => new Color(52, 52, 53),
-			'even' => new Color(241, 240, 240),
+			"primary" => new Color(254, 206, 84),
+			"secondary" => new Color(11, 29, 38),
 			'text' => Color::black(),
 			'white' => Color::white(),
+			'even' => new Color(241, 240, 240),
 			'odd' => Color::white(),
 		];
 

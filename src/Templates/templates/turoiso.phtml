@@ -49,10 +49,10 @@ echo '<?xml version="1.0" encoding="UTF-8"?>';
 
 	<?php $y = TemplateUtility::multiplier(45, 12) ?>
 	<?php foreach ($template->rightHeader as $item): ?>
-		<text x="424" y="<?= $y ?>" font-size="7" fill="<?= $template->colors['white'] ?>" text-anchor="end"><?= TemplateUtility::escape($item) ?></text>
+		<text x="424" y="<?= $y ?>" font-size="7" fill="<?= $template->colors['text'] ?>" text-anchor="end"><?= TemplateUtility::escape($item) ?></text>
 	<?php endforeach; ?>
 
-	<text x="434" y="<?= $y->centerPosition(-2) ?>" font-size="19" fill="<?= $template->colors['white'] ?>" font-weight="bold"><?= TemplateUtility::escape($template->translate('Invoice')) ?></text>
+	<text x="434" y="<?= $y->centerPosition(-2) ?>" font-size="19" fill="<?= $template->colors['text'] ?>" font-weight="bold"><?= TemplateUtility::escape($template->translate('Invoice')) ?></text>
 	<!-- / Header text right -->
 
 	<!-- Subheader left -->
@@ -95,11 +95,11 @@ echo '<?xml version="1.0" encoding="UTF-8"?>';
 	<polygon points="<?= $width ?>,<?= $y->current() - 29 ?> <?= $width ?>,<?= $y->current() ?> <?= $width - 124 ?>,<?= $y->current() ?> <?= $width - 100 ?>,<?= $y->current() - 29 ?>" fill="<?= $template->colors['primary'] ?>" />
 	<rect width="<?= $width ?>" height="1" x="0" y="<?= $y->current() ?>" fill="<?= $template->colors['primary'] ?>" />
 
-	<text y="<?= $y->current() - 10 ?>" x="35" font-size="10" fill="<?= $template->colors['primary'] ?>" font-weight="bold"><?= TemplateUtility::escape($template->translate('Item')) ?></text>
-	<text y="<?= $y->current() - 10 ?>" x="305" font-size="10" fill="<?= $template->colors['primary'] ?>" font-weight="bold" text-anchor="middle"><?= TemplateUtility::escape($template->translate('Price per item')) ?></text>
-	<text y="<?= $y->current() - 10 ?>" x="415" font-size="10" fill="<?= $template->colors['primary'] ?>" font-weight="bold" text-anchor="middle"><?= TemplateUtility::escape($template->translate('Quantity')) ?></text>
+	<text y="<?= $y->current() - 10 ?>" x="35" font-size="10" fill="<?= $template->colors['secondary'] ?>" font-weight="bold"><?= TemplateUtility::escape($template->translate('Item')) ?></text>
+	<text y="<?= $y->current() - 10 ?>" x="305" font-size="10" fill="<?= $template->colors['secondary'] ?>" font-weight="bold" text-anchor="middle"><?= TemplateUtility::escape($template->translate('Price per item')) ?></text>
+	<text y="<?= $y->current() - 10 ?>" x="415" font-size="10" fill="<?= $template->colors['secondary'] ?>" font-weight="bold" text-anchor="middle"><?= TemplateUtility::escape($template->translate('Quantity')) ?></text>
 
-	<text y="<?= $y->current() - 10 ?>" x="<?= $width - 56 ?>" font-size="10" fill="<?= $template->colors['white'] ?>" font-weight="bold" text-anchor="middle"><?= TemplateUtility::escape($template->translate('Price')) ?></text>
+	<text y="<?= $y->current() - 10 ?>" x="<?= $width - 56 ?>" font-size="10" fill="<?= $template->colors['secondary'] ?>" font-weight="bold" text-anchor="middle"><?= TemplateUtility::escape($template->translate('Price')) ?></text>
 
 	<?php $y->additional(1) ?>
 	<!-- / Items header -->

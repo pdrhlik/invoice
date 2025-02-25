@@ -1,8 +1,8 @@
 <?php declare(strict_types = 1);
 
 use Codeception\PHPUnit\TestCase;
-use Contributte\Invoice\Preview\PreviewFactory;
-use Contributte\Invoice\Templates\ParaisoTemplate;
+use Pdrhlik\Invoice\Preview\PreviewFactory;
+use Pdrhlik\Invoice\Templates\ParaisoTemplate;
 
 final class TemplateParaisoTest extends TestCase
 {

@@ -1,17 +1,17 @@
 <?php declare(strict_types = 1);
 
-namespace Contributte\Invoice\Preview;
+namespace Pdrhlik\Invoice\Preview;
 
-use Contributte\Invoice\Data\Account;
-use Contributte\Invoice\Data\Company;
-use Contributte\Invoice\Data\Customer;
-use Contributte\Invoice\Data\International\Czech\CzechAccount;
-use Contributte\Invoice\Data\International\Czech\CzechPaymentInformation;
-use Contributte\Invoice\Data\IOrder;
-use Contributte\Invoice\Data\Item;
-use Contributte\Invoice\Data\Order;
-use Contributte\Invoice\Data\PaymentInformation;
-use Contributte\Invoice\Data\Timestamps;
+use Pdrhlik\Invoice\Data\Account;
+use Pdrhlik\Invoice\Data\Company;
+use Pdrhlik\Invoice\Data\Customer;
+use Pdrhlik\Invoice\Data\International\Czech\CzechAccount;
+use Pdrhlik\Invoice\Data\International\Czech\CzechPaymentInformation;
+use Pdrhlik\Invoice\Data\IOrder;
+use Pdrhlik\Invoice\Data\Item;
+use Pdrhlik\Invoice\Data\Order;
+use Pdrhlik\Invoice\Data\PaymentInformation;
+use Pdrhlik\Invoice\Data\Timestamps;
 use DateTime;
 
 final class PreviewFactory
@@ -22,10 +22,10 @@ final class PreviewFactory
 		$order = new Order(
 			date('Y') . '0001',
 			'$ 15.000,00',
-			new Company('Contributte', 'Prague', 'U haldy', '110 00', 'Czech Republic', 'CZ08304431', '08304431'),
+			new Company("Hory.app", "Liberec", "Žitavská 133/59", "460 01", "Czech Republic", "CZ09504800", "09504800"),
 			new Customer('John Doe', 'Los Angeles', 'Cavetown', '720 55', 'USA', 'CZ08304431', '08304431'),
 			new PaymentInformation(
-				[new Account('CZ4808000000002353462013')],
+				[new Account('CZ4208000000001234567890')],
 			),
 			new Timestamps(
 				(new DateTime())->format('Y-m-d'),
@@ -43,10 +43,10 @@ final class PreviewFactory
 		$order = new Order(
 			date('Y') . '0001',
 			'15.000,00 Kč',
-			new Company('Contributte', 'Prague', 'U haldy', '110 00', 'Czech Republic', 'CZ08304431', '08304431'),
+			new Company("Hory.app", "Liberec", "Žitavská 133/59", "460 01", "Czech Republic", "CZ09504800", "09504800"),
 			new Customer('John Doe', 'Los Angeles', 'Cavetown', '720 55', 'USA', 'CZ08304431', '08304431'),
 			new CzechPaymentInformation(
-				[new CzechAccount('2353462013/0800', 'CZ4808000000002353462013')],
+				[new CzechAccount('1234567890/0800', 'CZ4208000000001234567890')],
 				'0123456789',
 				'0123',
 				'1234',

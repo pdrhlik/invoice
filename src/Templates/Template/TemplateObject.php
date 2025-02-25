@@ -1,9 +1,9 @@
 <?php declare(strict_types = 1);
 
-namespace Contributte\Invoice\Templates\Template;
+namespace Pdrhlik\Invoice\Templates\Template;
 
-use Contributte\Invoice\Data\IOrder;
-use Contributte\Invoice\Templates\Translator\ITranslator;
+use Pdrhlik\Invoice\Data\IOrder;
+use Pdrhlik\Invoice\Templates\Translator\ITranslator;
 
 abstract class TemplateObject
 {

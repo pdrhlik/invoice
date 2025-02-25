@@ -21,8 +21,8 @@ This library is a fork of [contributte/invoice](https://github.com/contributte/i
 ## Preview with minimal setup
 
 ```php
-use Contributte\Invoice\Preview\PreviewFactory;
-use Contributte\Invoice\Templates\ParaisoTemplate;
+use Pdrhlik\Invoice\Preview\PreviewFactory;
+use Pdrhlik\Invoice\Templates\ParaisoTemplate;
 
 $template = new ParaisoTemplate();
 
@@ -40,59 +40,59 @@ We have following entities: Company (seller), Customer, Account (bank account), 
 ### Company - seller
 
 ```php
-use Contributte\Invoice\Data\Company;
+use Pdrhlik\Invoice\Data\Company;
 
-$company = new Company('Contributte', 'Prague', 'U haldy', '110 00', 'Czech Republic', 'CZ08304431', '08304431');
+$company = new Company("Hory.app", "Liberec", "Žitavská 133/59", "460 01", "Czech Republic", "CZ09504800", "09504800");
 ```
 
 ### Customer
 
 ```php
-use Contributte\Invoice\Data\Customer;
+use Pdrhlik\Invoice\Data\Customer;
 
-$customer = new Customer('John Doe', 'Los Angeles', 'Cavetown', '720 55', 'USA', 'CZ08304431', '08304431');
+$customer = new Customer("John Doe", "Los Angeles", "Cavetown", "720 55", "USA", "CZ08304431", "08304431");
 ```
 
 ### Account - bank account
 
 ```php
-use Contributte\Invoice\Data\Account;
+use Pdrhlik\Invoice\Data\Account;
 
-$account = new Account('CZ4808000000002353462013');
+$account = new Account("CZ4208000000001234567890");
 ```
 
 ### Payment info
 
 ```php
-use Contributte\Invoice\Data\Account;
-use Contributte\Invoice\Data\PaymentInformation;
+use Pdrhlik\Invoice\Data\Account;
+use Pdrhlik\Invoice\Data\PaymentInformation;
 
 $payment = new PaymentInformation(
-    [new Account('CZ4808000000002353462013')],
+    [new Account("CZ4208000000001234567890")],
 );
 ```
 
 ### Order
 
 ```php
-use Contributte\Invoice\Data\Account;
-use Contributte\Invoice\Data\Company;
-use Contributte\Invoice\Data\Customer;
-use Contributte\Invoice\Data\Order;
-use Contributte\Invoice\Data\PaymentInformation;
-use Contributte\Invoice\Data\Timestamps;
+use Pdrhlik\Invoice\Data\Account;
+use Pdrhlik\Invoice\Data\Company;
+use Pdrhlik\Invoice\Data\Customer;
+use Pdrhlik\Invoice\Data\Order;
+use Pdrhlik\Invoice\Data\PaymentInformation;
+use Pdrhlik\Invoice\Data\Timestamps;
 
 $order = new Order(
-    date('Y') . '0001',
-    '$ 15.000,00',
-    new Company('Contributte', 'Prague', 'U haldy', '110 00', 'Czech Republic', 'CZ08304431', '08304431'),
-    new Customer('John Doe', 'Los Angeles', 'Cavetown', '720 55', 'USA', 'CZ08304431', '08304431'),
+    date("Y") . "0001",
+    "$ 15.000,00",
+    new Company("Hory.app", "Liberec", "Žitavská 133/59", "460 01", "Czech Republic", "CZ09504800", "09504800"),
+    new Customer("John Doe", "Los Angeles", "Cavetown", "720 55", "USA", "CZ08304431", "08304431"),
     new PaymentInformation(
-        [new Account('CZ4808000000002353462013')],
+        [new Account("CZ4208000000001234567890")],
     ),
     new Timestamps(
-        (new DateTime())->format('Y-m-d'),
-        (new DateTime('+ 1 week'))->format('Y-m-d'),
+        (new DateTime())->format("Y-m-d"),
+        (new DateTime("+ 1 week"))->format("Y-m-d"),
     ),
 );
 ```
@@ -100,23 +100,23 @@ $order = new Order(
 ### Item
 
 ```php
-use Contributte\Invoice\Data\Item;
+use Pdrhlik\Invoice\Data\Item;
 
-$order->addInlineItem('Logitech G700s Rechargeable Gaming Mouse', '$ 1.790,00', 4, '$ 7.160,00');
+$order->addInlineItem("Logitech G700s Rechargeable Gaming Mouse", "$ 1.790,00", 4, "$ 7.160,00");
 
 // or
 
-$order->addItem(new Item('Logitech G700s Rechargeable Gaming Mouse', '$ 1.790,00', 4, '$ 7.160,00'));
+$order->addItem(new Item("Logitech G700s Rechargeable Gaming Mouse", "$ 1.790,00", 4, "$ 7.160,00"));
 ```
 
 ## Data providers
 In most applications we need only one seller and one or more same accounts. We use for them prepared data providers
 
 ```php
-use Contributte\Invoice\Data\Account;
-use Contributte\Invoice\Data\Company;
-use Contributte\Invoice\Provider\InvoiceAccountsProvider;
-use Contributte\Invoice\Provider\InvoiceCompanyProvider;
+use Pdrhlik\Invoice\Data\Account;
+use Pdrhlik\Invoice\Data\Company;
+use Pdrhlik\Invoice\Provider\InvoiceAccountsProvider;
+use Pdrhlik\Invoice\Provider\InvoiceCompanyProvider;
 
 $companyProvider = new InvoiceCompanyProvider(new Company(...));
 $companyProvider->getCompany();
@@ -131,14 +131,14 @@ $accountsProvider->getAccount();
 ## Generating invoices
 
 ```php
-header('Content-Type: application/pdf; charset=utf-8');
+header("Content-Type: application/pdf; charset=utf-8");
 echo $template->renderToPdf($order);
 ```
 
 if you use nette, recommended way is
 
 ```php
-use Contributte\Invoice\Bridge\Nette\Response\InvoicePdfResponse;
+use Pdrhlik\Invoice\Bridge\Nette\Response\InvoicePdfResponse;
 
 class CustomPresenter {
 
@@ -155,7 +155,7 @@ class CustomPresenter {
 
 ```neon
 extensions:
-    invoice: Contributte\Invoice\Bridge\Nette\DI\InvoiceExtension
+    invoice: Pdrhlik\Invoice\Bridge\Nette\DI\InvoiceExtension
 
 invoice:
     company:

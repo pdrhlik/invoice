@@ -1,9 +1,9 @@
 <?php declare(strict_types = 1);
 
-namespace Contributte\Invoice\Bridge\Nette\Response;
+namespace Pdrhlik\Invoice\Bridge\Nette\Response;
 
-use Contributte\Invoice\Data\IOrder;
-use Contributte\Invoice\Templates\ITemplate;
+use Pdrhlik\Invoice\Data\IOrder;
+use Pdrhlik\Invoice\Templates\ITemplate;
 use Nette\Application\Response;
 use Nette\Http\IRequest;
 use Nette\Http\IResponse;

@@ -1,6 +1,6 @@
 <?php declare(strict_types = 1);
 
-namespace Contributte\Invoice\Templates\Translator;
+namespace Pdrhlik\Invoice\Templates\Translator;
 
 final class ParaisoTemplateTranslator extends Translator {
 

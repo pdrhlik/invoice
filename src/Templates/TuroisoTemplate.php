@@ -1,12 +1,12 @@
 <?php declare(strict_types = 1);
 
-namespace Contributte\Invoice\Templates;
+namespace Pdrhlik\Invoice\Templates;
 
-use Contributte\Invoice\Data\IOrder;
-use Contributte\Invoice\Templates\Template\TemplateObject;
-use Contributte\Invoice\Templates\Template\TuroisoTemplateObject;
-use Contributte\Invoice\Templates\Translator\ITranslator;
-use Contributte\Invoice\Templates\Translator\TuroisoTemplateTranslator;
+use Pdrhlik\Invoice\Data\IOrder;
+use Pdrhlik\Invoice\Templates\Template\TemplateObject;
+use Pdrhlik\Invoice\Templates\Template\TuroisoTemplateObject;
+use Pdrhlik\Invoice\Templates\Translator\ITranslator;
+use Pdrhlik\Invoice\Templates\Translator\TuroisoTemplateTranslator;
 use WebChemistry\SvgPdf\Pdf\Color;
 use WebChemistry\SvgPdf\PdfSvg;
 

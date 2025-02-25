@@ -1,6 +1,6 @@
 <?php declare(strict_types = 1);
 
-namespace Contributte\Invoice\Data;
+namespace Pdrhlik\Invoice\Data;
 
 class Order implements IOrder
 {

@@ -1,9 +1,9 @@
 <?php declare(strict_types = 1);
 
-namespace Contributte\Invoice\Templates;
+namespace Pdrhlik\Invoice\Templates;
 
-use Contributte\Invoice\Data\IOrder;
-use Contributte\Invoice\Templates\Template\TemplateObject;
+use Pdrhlik\Invoice\Data\IOrder;
+use Pdrhlik\Invoice\Templates\Template\TemplateObject;
 use Exception;
 use LogicException;
 use WebChemistry\SvgPdf\PdfSvg;

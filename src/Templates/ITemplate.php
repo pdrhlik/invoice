@@ -1,8 +1,8 @@
 <?php declare(strict_types = 1);
 
-namespace Contributte\Invoice\Templates;
+namespace Pdrhlik\Invoice\Templates;
 
-use Contributte\Invoice\Data\IOrder;
+use Pdrhlik\Invoice\Data\IOrder;
 
 interface ITemplate
 {

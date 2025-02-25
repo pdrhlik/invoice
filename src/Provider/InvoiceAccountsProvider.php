@@ -1,9 +1,9 @@
 <?php declare(strict_types = 1);
 
-namespace Contributte\Invoice\Provider;
+namespace Pdrhlik\Invoice\Provider;
 
 use BadMethodCallException;
-use Contributte\Invoice\Data\Account;
+use Pdrhlik\Invoice\Data\Account;
 use LogicException;
 use Nette\Utils\Arrays;
 

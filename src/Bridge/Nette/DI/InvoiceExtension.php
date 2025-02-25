@@ -1,11 +1,11 @@
 <?php declare(strict_types = 1);
 
-namespace Contributte\Invoice\Bridge\Nette\DI;
+namespace Pdrhlik\Invoice\Bridge\Nette\DI;
 
-use Contributte\Invoice\Data\Account;
-use Contributte\Invoice\Data\Company;
-use Contributte\Invoice\Provider\InvoiceAccountsProvider;
-use Contributte\Invoice\Provider\InvoiceCompanyProvider;
+use Pdrhlik\Invoice\Data\Account;
+use Pdrhlik\Invoice\Data\Company;
+use Pdrhlik\Invoice\Provider\InvoiceAccountsProvider;
+use Pdrhlik\Invoice\Provider\InvoiceCompanyProvider;
 use Nette\DI\CompilerExtension;
 use Nette\DI\Definitions\Statement;
 use Nette\Schema\Expect;

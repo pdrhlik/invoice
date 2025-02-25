@@ -1,13 +1,13 @@
 <?php declare(strict_types = 1);
 
-namespace Contributte\Invoice\Templates\Template;
+namespace Pdrhlik\Invoice\Templates\Template;
 
-use Contributte\Invoice\Data\Extension\IAccountNumber;
-use Contributte\Invoice\Data\Extension\IConstantSymbol;
-use Contributte\Invoice\Data\Extension\ISpecificSymbol;
-use Contributte\Invoice\Data\Extension\IVariableSymbol;
-use Contributte\Invoice\Data\IOrder;
-use Contributte\Invoice\Templates\Translator\ITranslator;
+use Pdrhlik\Invoice\Data\Extension\IAccountNumber;
+use Pdrhlik\Invoice\Data\Extension\IConstantSymbol;
+use Pdrhlik\Invoice\Data\Extension\ISpecificSymbol;
+use Pdrhlik\Invoice\Data\Extension\IVariableSymbol;
+use Pdrhlik\Invoice\Data\IOrder;
+use Pdrhlik\Invoice\Templates\Translator\ITranslator;
 use WebChemistry\SvgPdf\Pdf\Color;
 
 class TuroisoTemplateObject extends TemplateObject {

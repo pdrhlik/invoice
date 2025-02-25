@@ -1,12 +1,12 @@
 <?php declare(strict_types = 1);
 
-namespace Contributte\Invoice\Data\International\Czech;
+namespace Pdrhlik\Invoice\Data\International\Czech;
 
-use Contributte\Invoice\Data\Account;
-use Contributte\Invoice\Data\Extension\IConstantSymbol;
-use Contributte\Invoice\Data\Extension\ISpecificSymbol;
-use Contributte\Invoice\Data\Extension\IVariableSymbol;
-use Contributte\Invoice\Data\PaymentInformation;
+use Pdrhlik\Invoice\Data\Account;
+use Pdrhlik\Invoice\Data\Extension\IConstantSymbol;
+use Pdrhlik\Invoice\Data\Extension\ISpecificSymbol;
+use Pdrhlik\Invoice\Data\Extension\IVariableSymbol;
+use Pdrhlik\Invoice\Data\PaymentInformation;
 
 final class CzechPaymentInformation extends PaymentInformation implements IVariableSymbol, ISpecificSymbol, IConstantSymbol
 {

@@ -1,7 +1,7 @@
 <?php declare(strict_types = 1);
 
 use Codeception\PHPUnit\TestCase;
-use Contributte\Invoice\Data\Company;
+use Pdrhlik\Invoice\Data\Company;
 
 final class CompanyTest extends TestCase
 {

@@ -1,8 +1,8 @@
 <?php declare(strict_types = 1);
 
-namespace Contributte\Invoice\Provider;
+namespace Pdrhlik\Invoice\Provider;
 
-use Contributte\Invoice\Data\ICompany;
+use Pdrhlik\Invoice\Data\ICompany;
 
 final class InvoiceCompanyProvider
 {

@@ -1,11 +1,11 @@
 <?php declare(strict_types = 1);
 
-namespace Contributte\Invoice\Templates;
+namespace Pdrhlik\Invoice\Templates;
 
-use Contributte\Invoice\Data\IOrder;
-use Contributte\Invoice\Templates\Template\ParaisoTemplateObject;
-use Contributte\Invoice\Templates\Translator\ITranslator;
-use Contributte\Invoice\Templates\Translator\ParaisoTemplateTranslator;
+use Pdrhlik\Invoice\Data\IOrder;
+use Pdrhlik\Invoice\Templates\Template\ParaisoTemplateObject;
+use Pdrhlik\Invoice\Templates\Translator\ITranslator;
+use Pdrhlik\Invoice\Templates\Translator\ParaisoTemplateTranslator;
 use WebChemistry\SvgPdf\Pdf\Color;
 use WebChemistry\SvgPdf\PdfSvg;
 

@@ -20,11 +20,11 @@ echo '<?xml version="1.0" encoding="UTF-8"?>';
         p { margin: 0; }
 	</style>
 	<!-- Header Text -->
-	<text font-size="136" x="1678" y="206" fill="<?= $this->colors['text'] ?>" font-weight="bold" text-anchor="start"><?= TemplateUtility::escape($template->translate('Invoice')) ?></text>
+	<text font-size="136" x="1678" y="206" fill="<?= $this->colors['text'] ?>" font-weight="bold" text-anchor="start"><?= TemplateUtility::escape($template->translate('invoice')) ?></text>
 	<!-- / Header Text -->
 
 
-	<!-- Invoice From -->
+	<!-- Seller -->
 	<?php $y = TemplateUtility::multiplier(206 - 43, 55 + 4); ?>
 	<?php foreach ($template->getInvoiceFrom() as $i => $item): ?>
 
@@ -37,10 +37,10 @@ echo '<?xml version="1.0" encoding="UTF-8"?>';
 		<?php endif; ?>
 
 	<?php endforeach; ?>
-	<!-- / Invoice From -->
+	<!-- / Seller -->
 
 
-	<!-- Invoice To -->
+	<!-- Customer -->
 	<?php $y = TemplateUtility::multiplier(587, 55 + 4); ?>
 	<?php foreach ($template->getInvoiceTo() as $i => $item): ?>
 
@@ -53,7 +53,7 @@ echo '<?xml version="1.0" encoding="UTF-8"?>';
 		<?php endif; ?>
 
 	<?php endforeach; ?>
-	<!-- / Invoice To -->
+	<!-- / Customer -->
 
 	<!-- Invoice Date-->
 	<?php $y = TemplateUtility::multiplier(587, 55 + 4); ?>
@@ -64,16 +64,16 @@ echo '<?xml version="1.0" encoding="UTF-8"?>';
 
 
 	<!-- Total Due -->
-	<text font-size="67" x="1678" y="878" fill="<?= $this->colors['totalDue'] ?>" text-anchor="start"><?= TemplateUtility::escape($template->translate('Total price')) ?>:</text>
+	<text font-size="67" x="1678" y="878" fill="<?= $this->colors['totalDue'] ?>" text-anchor="start"><?= TemplateUtility::escape($template->translate('totalPrice')) ?>:</text>
 	<text font-size="67" x="1678" y="959" fill="<?= $this->colors['primary'] ?>" font-weight="bold" text-anchor="start"><?= TemplateUtility::escape($order->getTotalPrice()) ?></text>
 	<!-- / Total Due -->
 
 	<rect x="0" y="1133" width="2480" height="5" fill="<?= $this->colors['primary'] ?>" />
 
-	<text font-size="42" x="176" y="1190" fill="<?= $this->colors['primary'] ?>"><?= TemplateUtility::escape($template->translate('Item description')) ?></text>
-	<text font-size="42" x="1231" y="1190" fill="<?= $this->colors['primary'] ?>" text-anchor="middle"><?= TemplateUtility::escape($template->translate('Unit price')) ?></text>
-	<text font-size="42" x="1680" y="1190" fill="<?= $this->colors['primary'] ?>" text-anchor="middle"><?= TemplateUtility::escape($template->translate('Quantity')) ?></text>
-	<text font-size="42" x="2174" y="1190" fill="<?= $this->colors['primary'] ?>" text-anchor="middle"><?= TemplateUtility::escape($template->translate('Total')) ?></text>
+	<text font-size="42" x="176" y="1190" fill="<?= $this->colors['primary'] ?>"><?= TemplateUtility::escape($template->translate('item')) ?></text>
+	<text font-size="42" x="1231" y="1190" fill="<?= $this->colors['primary'] ?>" text-anchor="middle"><?= TemplateUtility::escape($template->translate('unitPrice')) ?></text>
+	<text font-size="42" x="1680" y="1190" fill="<?= $this->colors['primary'] ?>" text-anchor="middle"><?= TemplateUtility::escape($template->translate('quantity')) ?></text>
+	<text font-size="42" x="2174" y="1190" fill="<?= $this->colors['primary'] ?>" text-anchor="middle"><?= TemplateUtility::escape($template->translate('total')) ?></text>
 
 	<?php $y = TemplateUtility::multiplier(1278, 29 + 100, false); ?>
 	<?php foreach ($order->getItems() as $item): ?>
@@ -125,16 +125,16 @@ echo '<?xml version="1.0" encoding="UTF-8"?>';
 	<?php endif; ?>
 
 	<?php if ($order instanceof IDiscount): ?>
-		<text font-size="42" x="1593" y="<?= $y; ?>" fill="#5f6f73"><?= TemplateUtility::escape($template->translate('Discount')) ?>:</text>
+		<text font-size="42" x="1593" y="<?= $y; ?>" fill="#5f6f73"><?= TemplateUtility::escape($template->translate('discount')) ?>:</text>
 		<text font-size="42" x="2250" y="<?= $y->postIncrement(); ?>" text-anchor="end" fill="#5f6f73"><?= TemplateUtility::escape($order->getDiscount()) ?></text>
 	<?php endif; ?>
 
-	<text font-size="42" x="1593" y="<?= $y; ?>" font-weight="bold" fill="#5f6f73"><?= TemplateUtility::escape($template->translate('Total')) ?></text>
+	<text font-size="42" x="1593" y="<?= $y; ?>" font-weight="bold" fill="#5f6f73"><?= TemplateUtility::escape($template->translate('total')) ?></text>
 	<text font-size="42" x="2250" y="<?= $y; ?>" font-weight="bold" text-anchor="end" fill="#5f6f73"><?= TemplateUtility::escape($order->getTotalPrice()) ?></text>
 
 	<?php $paymentY = TemplateUtility::multiplier($adjust, 42 + 30); ?>
 	<?php if ($template->getPaymentInfo()): ?>
-		<text font-size="54" x="178" y="<?= $paymentY->additional(12); ?>" color="<?= $this->colors['text'] ?>"><?= TemplateUtility::escape($template->translate('Payment Info')) ?></text>
+		<text font-size="54" x="178" y="<?= $paymentY->additional(12); ?>" color="<?= $this->colors['text'] ?>"><?= TemplateUtility::escape($template->translate('paymentInfo')) ?></text>
 		<?php foreach ($template->getPaymentInfo() as $info): ?>
 			<text font-size="42" x="178" y="<?= $paymentY; ?>" fill="#5f6f73"><?= TemplateUtility::escape($info) ?></text>
 		<?php endforeach; ?>

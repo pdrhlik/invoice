@@ -34,47 +34,47 @@ class ParaisoTemplateObject extends TemplateObject
 		$company = $order->getCompany();
 
 		$this->invoiceFrom = array_filter([
-			$translator->translate('Invoice from'),
+			$translator->translate('seller'),
 			$company->getName(),
 			$this->toFullAddress($company),
-			$this->prepend($translator->translate('ID') . ': ', $company->getId()),
-			$this->prepend($translator->translate('VAT Number') . ': ', $company->getVatNumber()),
+			$this->prepend($translator->translate('crn') . ': ', $company->getId()),
+			$this->prepend($translator->translate('vatNumber') . ': ', $company->getVatNumber()),
 		]);
 
 		$customer = $order->getCustomer();
 		$this->invoiceTo = array_filter([
-			$translator->translate('Invoice to'),
+			$translator->translate('customer'),
 			$customer->getName(),
 			$this->toFullAddress($customer),
-			$this->prepend($translator->translate('ID') . ': ', $customer->getId()),
-			$this->prepend($translator->translate('VAT Number') . ': ', $customer->getVatNumber()),
+			$this->prepend($translator->translate('crn') . ': ', $customer->getId()),
+			$this->prepend($translator->translate('vatNumber') . ': ', $customer->getVatNumber()),
 		]);
 
 		$timestamps = $order->getTimestamps();
 		$this->invoiceInfo = array_filter([
-			sprintf('%s %s', $translator->translate('Invoice No.'), $order->getNumber()),
-			sprintf('%s: %s', $translator->translate('Invoice date'), $timestamps->getCreated()),
-			$this->prepend($this->translate('Invoice due to') . ': ', $timestamps->getDueTo()),
+			sprintf('%s %s', $translator->translate('invoiceNumber'), $order->getNumber()),
+			sprintf('%s: %s', $translator->translate('issueDate'), $timestamps->getCreated()),
+			$this->prepend($this->translate('dueDate') . ': ', $timestamps->getDueTo()),
 		]);
 
 		$payment = $order->getPayment();
 		$account = $payment->getFirstAccount();
 		$this->paymentInfo = array_filter([
 			$this->prepend(
-				$translator->translate('Account number') . ': ',
+				$translator->translate('accountNumber') . ': ',
 				$account instanceof IAccountNumber ? $account->getAccountNumber() : null
 			),
-			$this->prepend($translator->translate('IBAN') . ': ', $account?->getIban()),
+			$this->prepend($translator->translate('iban') . ': ', $account?->getIban()),
 			$this->prepend(
-				$translator->translate('Variable symbol') . ': ',
+				$translator->translate('variableSymbol') . ': ',
 				$payment instanceof IVariableSymbol ? $payment->getVariableSymbol() : null
 			),
 			$this->prepend(
-				$translator->translate('Constant symbol') . ': ',
+				$translator->translate('constantSymbol') . ': ',
 				$payment instanceof IConstantSymbol ? $payment->getConstantSymbol() : null,
 			),
 			$this->prepend(
-				$translator->translate('Specific symbol') . ': ',
+				$translator->translate('specificSymbol') . ': ',
 				$payment instanceof ISpecificSymbol ? $payment->getSpecificSymbol() : null,
 			)
  		]);

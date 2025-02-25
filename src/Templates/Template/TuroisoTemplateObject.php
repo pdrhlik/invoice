@@ -10,8 +10,7 @@ use Contributte\Invoice\Data\IOrder;
 use Contributte\Invoice\Templates\Translator\ITranslator;
 use WebChemistry\SvgPdf\Pdf\Color;
 
-class TuroisoTemplateObject extends TemplateObject
-{
+class TuroisoTemplateObject extends TemplateObject {
 
 	/** @var Color[] */
 	public array $colors;
@@ -31,8 +30,7 @@ class TuroisoTemplateObject extends TemplateObject
 	/** @var string[] */
 	public array $rightSubheader;
 
-	public function __construct(IOrder $order, ITranslator $translator)
-	{
+	public function __construct(IOrder $order, ITranslator $translator) {
 		parent::__construct($order, $translator);
 
 		$company = $order->getCompany();
@@ -43,48 +41,49 @@ class TuroisoTemplateObject extends TemplateObject
 		$this->colors = [
 			"primary" => new Color(254, 206, 84),
 			"secondary" => new Color(11, 29, 38),
-			'text' => Color::black(),
-			'white' => Color::white(),
-			'even' => new Color(241, 240, 240),
-			'odd' => Color::white(),
+			"text" => Color::black(),
+			"white" => Color::white(),
+			"even" => new Color(241, 240, 240),
+			"odd" => Color::white(),
 		];
 
 		$this->leftHeaderLeft = array_filter([
-			$this->implode([$company->getZip(), $company->getTown()], ' '),
+			$this->implode([$company->getZip(), $company->getTown()], " "),
 			$company->getAddress(),
 			$company->getCountry(),
 		]);
 
 		$this->leftHeaderRight = array_filter([
-			$this->prepend($translator->translate('ID') . ': ', $company->getId()),
-			$this->prepend($translator->translate('VAT Number') . ': ', $company->getVatNumber()),
+			$this->prepend($translator->translate("crn") . ": ", $company->getId()),
+			$this->prepend($translator->translate("vatNumber") . ": ", $company->getVatNumber()),
+			!$company->getVatNumber() ? $this->prepend($translator->translate("nonVatPayer"), "") : false,
 		]);
 
 		$this->rightHeader = [
-			$translator->translate('Date') . ': ' . $order->getTimestamps()->getCreated(),
-			$translator->translate('Invoice number') . ': ' . $order->getNumber(),
+			$translator->translate("issueDate") . ": " . $order->getTimestamps()->getCreated(),
+			$translator->translate("invoiceNumber") . ": " . $order->getNumber(),
 		];
 
 		$this->leftSubheader = array_filter([
 			$customer->getName(),
-			$this->implode([$company->getZip(), $company->getTown()], ', '),
+			$this->implode([$customer->getZip(), $customer->getTown()], ", "),
 			$customer->getAddress(),
 			$customer->getCountry(),
-			$this->prepend($translator->translate('ID') . ': ', $customer->getId()),
-			$this->prepend($translator->translate('VAT Number') . ': ', $customer->getVatNumber()),
+			$this->prepend($translator->translate("crn") . ": ", $customer->getId()),
+			$this->prepend($translator->translate("vatNumber") . ": ", $customer->getVatNumber()),
 		]);
 
 		$this->rightSubheader = array_filter([
-			$this->prepend($translator->translate('Due to') . ': ', $order->getTimestamps()->getDueTo()),
+			$this->prepend($translator->translate("dueDate") . ": ", $order->getTimestamps()->getDueTo()),
 			$account instanceof IAccountNumber ?
-				$this->prepend($translator->translate('Account number') . ': ', $account->getAccountNumber()) : null,
-			$this->prepend($translator->translate('IBAN') . ': ', $account?->getIban()),
+				$this->prepend($translator->translate("accountNumber") . ": ", $account->getAccountNumber()) : null,
+			$this->prepend($translator->translate("iban") . ": ", $account?->getIban()),
 			$payment instanceof IVariableSymbol ?
-				$this->prepend($translator->translate('Variable symbol') . ': ', $payment->getVariableSymbol()) : null,
+				$this->prepend($translator->translate("variableSymbol") . ": ", $payment->getVariableSymbol()) : null,
 			$payment instanceof IConstantSymbol ?
-				$this->prepend($translator->translate('Constant symbol') . ': ', $payment->getConstantSymbol()) : null,
+				$this->prepend($translator->translate("constantSymbol") . ": ", $payment->getConstantSymbol()) : null,
 			$payment instanceof ISpecificSymbol ?
-				$this->prepend($translator->translate('Specific symbol') . ': ', $payment->getSpecificSymbol()) : null,
+				$this->prepend($translator->translate("specificSymbol") . ": ", $payment->getSpecificSymbol()) : null,
 		]);
 	}
 

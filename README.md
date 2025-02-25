@@ -1,6 +1,13 @@
 # PHP PDF Invoice generator
 This library is a fork of [contributte/invoice](https://github.com/contributte/invoice). It is in active development and the internals will probably change. Once everything is more stable, I will start tagging releases.
 
+## Potential improvements
+- Currency handling
+- Date/Number formatting
+- Improved translations
+- Simplified usage
+- Better documentation
+
 ## Content
 
 - [Setup](#setup)

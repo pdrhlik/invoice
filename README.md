@@ -4,6 +4,9 @@ This library is a fork of [contributte/invoice](https://github.com/contributte/i
 ## Potential improvements
 - Currency handling
 - Date/Number formatting
+- Logo support
+- Custom invoice text
+- QR code payment
 - Improved translations
 - Simplified usage
 - Better documentation

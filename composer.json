@@ -1,7 +1,7 @@
 {
   "name": "pdrhlik/invoice",
   "type": "library",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Library for easily and quickly creating invoices for customers.",
   "license": [
     "MIT"
@@ -38,7 +38,7 @@
   "minimum-stability": "dev",
   "extra": {
     "branch-alias": {
-      "dev-master": "1.0.0-dev"
+      "dev-master": "0.1.0-dev"
     }
   }
 }

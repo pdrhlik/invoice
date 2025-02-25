@@ -107,9 +107,24 @@ echo '<?xml version="1.0" encoding="UTF-8"?>';
 	<!-- Items -->
 	<?php foreach ($order->getItems() as $i => $item): ?>
 		<?php $y->increment() ?>
-
 		<rect width="<?= $width ?>" height="29" x="0" y="<?= $y->current() - 29 ?>" fill="<?= $i % 2 === 0 ? $template->colors['odd'] : $template->colors['even'] ?>" />
-		<text y="<?= $y->current() - 11 ?>" x="35" font-size="8" fill="<?= $template->colors['text'] ?>"><?= TemplateUtility::escape($item->getName()) ?></text>
+
+		<!--
+			If item name line is too long, split it and draw underneath each other.
+			It only uses the first two split lines. If it's very very long, it won't
+			show the rest of the text.
+		-->
+		<?php
+			$itemName = TemplateUtility::escape($item->getName());
+			$lines = TuroisoTemplate::splitTextToLines($itemName);
+		?>
+		<?php if (count($lines) > 1) { ?>
+		<text y="<?= $y->current() - 18 ?>" x="35" font-size="8" fill="<?= $template->colors['text'] ?>"><?= array_shift($lines) ?></text>
+		<text y="<?= $y->current() - 4 ?>" x="35" font-size="8" fill="<?= $template->colors['text'] ?>"><?= array_shift($lines) ?></text>
+		<?php } else { ?>
+		<text y="<?= $y->current() - 11 ?>" x="35" font-size="8" fill="<?= $template->colors['text'] ?>"><?= $lines[0] ?></text>
+		<?php } ?>
+
 		<text y="<?= $y->current() - 11 ?>" x="305" font-size="8" fill="<?= $template->colors['text'] ?>" text-anchor="middle"><?= TemplateUtility::escape($item->getUnitPrice()) ?></text>
 		<text y="<?= $y->current() - 11 ?>" x="415" font-size="8" fill="<?= $template->colors['text'] ?>" text-anchor="middle"><?= TemplateUtility::escape($item->getQuantity()) ?></text>
 		<text y="<?= $y->current() - 11 ?>" x="<?= $width - 56 ?>" font-size="8" fill="<?= $template->colors['text'] ?>" text-anchor="middle"><?= TemplateUtility::escape($item->getTotalPrice()) ?></text>

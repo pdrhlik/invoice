@@ -52,4 +52,36 @@ abstract class Template implements ITemplate
 
 	abstract protected function createTemplateObject(IOrder $order): TemplateObject;
 
+	/**
+	 * Roughly splits text into lines based on supplied max width and font size.
+	 * It is not precisely accurate but it works in most scenarios.
+	 *
+	 * @param string $text     Text to be split.
+	 * @param int    $maxWidth Max width in page units.
+	 * @param int    $fontSize Font size in page units.
+	 *
+	 * @return array<string>
+	 */
+	public static function splitTextToLines(string $text, int $maxWidth = 300, int $fontSize = 8): array {
+		$words = explode(" ", trim($text));
+		$lines = [];
+		$currentLine = "";
+
+		foreach ($words as $word) {
+			$testLine = $currentLine ? $currentLine . " " . trim($word) : trim($word);
+			// Rough estimate: assume 0.6 * fontSize per character for width
+			$approxWidth = strlen($testLine) * ($fontSize * 0.6);
+			if ($approxWidth <= $maxWidth) {
+				$currentLine = $testLine;
+			} else {
+				$lines[] = $currentLine;
+				$currentLine = $word;
+			}
+		}
+		if ($currentLine) {
+			$lines[] = $currentLine;
+		}
+		return $lines;
+	}
+
 }

@@ -150,8 +150,8 @@ echo '<?xml version="1.0" encoding="UTF-8"?>';
 
 	<?php $y->increment() ?>
 
-	<rect width="<?= $width - 380 ?>" height="29" x="380" y="<?= $y->current() - 29 ?>" fill="<?= $template->colors['even'] ?>" />
+	<rect width="<?= $width - 380 ?>" height="29" x="380" y="<?= $y->current() - 29 ?>" fill="<?= $template->colors['primary'] ?>" />
 	<text y="<?= $y->current() - 10 ?>" x="402" font-size="10" fill="<?= $template->colors['text'] ?>" text-anchor="start" font-weight="bold"><?= TemplateUtility::escape($template->translate('totalPrice')) ?></text>
-	<text y="<?= $y->current() - 11 ?>" x="<?= $width - 56 ?>" font-size="8" fill="<?= $template->colors['text'] ?>" text-anchor="middle"><?= TemplateUtility::escape($order->getTotalPrice()) ?></text>
+	<text y="<?= $y->current() - 11 ?>" x="<?= $width - 56 ?>" font-size="8" fill="<?= $template->colors['text'] ?>" text-anchor="middle" font-weight="bold"><?= TemplateUtility::escape($order->getTotalPrice()) ?></text>
 	<!-- / Items footer -->
 </svg>
